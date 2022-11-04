@@ -87,7 +87,7 @@ int right_photo_value, left_photo_value, right_ir_value, left_ir_value, front_bu
 // threshold values
 int avoid_threshold = 1600;       // the absolute difference between IR readings has to be above this for the avoid action
 int approach_threshold = 1600; // the absolute difference between IR readings has to be below this for the approach action
-int photo_threshold = 200;       // the absolute difference between photo sensor readings has to be above this for seek light/dark actions
+int photo_threshold = 0;       // the absolute difference between photo sensor readings has to be above this for seek light/dark actions
 
 // timer
 int timer_duration = 500;      // the time in milliseconds to wait between calling action commands, changed by each drive command called by actions
@@ -148,7 +148,7 @@ void search_mode()
 {
     
     printf("search mode");
-    if(is_at_flower(1600) == true)
+    if(is_at_flower(2000) == true)
     {
         flower = true;
     }
@@ -164,18 +164,15 @@ void search_mode()
             {
                 escape_back();
             }
-            else if (is_above_distance_threshold(avoid_threshold))
-            {
-                avoid();
-            }
-            else if (is_above_photo_differential(photo_threshold))
+           // else if (is_above_distance_threshold(avoid_threshold))
+          //  {
+            //    avoid();
+            //}
+            else 
             {
                 seek_light();
             }
-            else
-            {
-                cruise_straight();
-            }
+            
         }
     
     
@@ -324,8 +321,8 @@ void escape_back()
 void seek_light()
 {
 
- int left_motor_value = map(right_photo_value, 0, 4095, 0, 1);
- int right_motor_value = map(left_motor_value, 0, 4095, 0, 1);
+ float left_motor_value = map(right_photo_value, 0, 4095, 1, 0);
+ float right_motor_value = map(left_photo_value, 0, 4095, 1, 0);
 
  drive(left_motor_value, right_motor_value, 0.1);
 
@@ -395,4 +392,5 @@ float map(float value, float start_range_low, float start_range_high, float targ
     return target_range_low + ((value - start_range_low) / (start_range_high - start_range_low)) * (target_range_high - target_range_low);
     // remap a value from a source range to a new range
 }
+
 
