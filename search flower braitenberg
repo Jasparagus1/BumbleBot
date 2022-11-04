@@ -164,10 +164,10 @@ void search_mode()
             {
                 escape_back();
             }
-           // else if (is_above_distance_threshold(avoid_threshold))
-          //  {
-            //    avoid();
-            //}
+            else if (is_above_distance_threshold(avoid_threshold))
+            {
+                avoid();
+            }
             else 
             {
                 seek_light();
