@@ -264,9 +264,9 @@ void waggle_mode(time_back)
 }
 
 
-int orient_to_beacon()
+int orient_to_beacon() // This function should steer forwards or left or right depending on which side of beacon is active. more like a drive than orient.
 {
-    int dir = chooseDirection() 
+    int dir = chooseDirection()
 }
 
 
