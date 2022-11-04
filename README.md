@@ -4,7 +4,7 @@ IP to connect to Wombat: https://192.168.125.1/
 
 
 ## Oct. 28
-- See (Whiteboards Oct 28)[Whiteboards/Oct%2028]
+- See [Whiteboards Oct 28](Whiteboards/Oct%2028)
 - Brainstormed behaviors for our robot to carry out, chose Pollination/Waggle Dance.
 - Outlined goals and steps needed in programming.
 - Separated potential goals into:
