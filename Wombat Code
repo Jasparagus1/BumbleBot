@@ -1,6 +1,7 @@
 /*
 Vassar Cognitive Science - Robot Novel Behavior (Plain version)
 
+
 This program operates a kipr-wombat-based robot (equipped with analog photo, ir, contact sensors) with a specified subsumption hierarchy.
 
 Course:            211 - Perception & Action
@@ -37,16 +38,23 @@ Date:            August 2022
 // HIGHER LEVEL HIERARCHY FUNCTIONS
 void search_mode();
 void flower_mode();
-void hive_mode();
+void return_mode();
 void waggle_mode();
 
 // PERCEPTION FUNCTIONS
 void read_sensors();                             // read all sensor values and save to global variables
 bool is_above_distance_threshold(int threshold); // return true if one and only one IR sensor is above the specified threshold
-bool is_above_photo_differential(int threshold); // return true if the absolute difference between photo sensor values is above the specified threshold
+bool is_above_photo_differential(int threshold);  // return true if the absolute difference between photo sensor values is above the specified threshold
+bool is_at_flower(int threshold); 
 bool is_front_bump();                             // return true if one of the front bumpers was hit
 bool is_back_bump();                             // return true if one of the back bumpers was hit
-bool timer_elapsed();                             // return true if our timer has elapsed
+bool timer_elapsed();  
+  // return true if our timer has elapsed
+bool flower() = false;      
+bool getback() = false;   
+bool arrived() = false;   
+
+                   
 
 // ACTION FUNCTIONS
 void escape_front();
@@ -104,7 +112,45 @@ int main()
 
         read_sensors(); // read all sensor values and set to global variables
 
-        if (timer_elapsed()) // any time a drive message is called, the timer is updated; this should always return true until it is called again
+        if(arrived == true)
+        {
+            waggle_mode();
+        }
+        else if (getback == true)
+        {
+            return_mode();
+        }
+        else if (flower == true)
+        {
+            flower_mode();
+        }
+        else
+        {
+            search_mode();
+        }
+
+
+    }
+
+
+       
+}
+
+
+
+//========================================//
+//===============CONTROL===============//
+//========================================//
+
+void search_mode()
+{
+    if(is_at_flower == true)
+    {
+        flower = true;
+        break;
+    }
+
+    if (timer_elapsed()) // any time a drive message is called, the timer is updated; this should always return true until it is called again
         {
             // subsumption hierarchy:  front, back, avoid, seek light, cruise straight
             if (is_front_bump())
@@ -128,9 +174,57 @@ int main()
                 cruise_straight();
             }
         }
-    }
+    
     return 0; // due to infinite while loop, we will never get here
 }
+
+
+}
+
+void flower_mode()
+{
+
+if (timer_elapsed()) // any time a drive message is called, the timer is updated; this should always return true until it is called again
+        {
+            // subsumption hierarchy:  front, back, avoid, seek light, cruise straight
+            if (is_front_bump())
+            {
+                getback = true;
+                break;
+            }
+            else if (is_back_bump())
+            {
+                escape_back();
+            }
+            else if (is_above_distance_threshold(approach_threshold))
+            {
+                approach();
+            }
+            else if (is_above_photo_differential(photo_threshold))
+            {
+                seek_light();
+            }
+            else
+            {
+                cruise_straight();
+            }
+        }
+
+}
+
+void return_mode()
+{
+
+
+}
+
+void waggle_mode()
+
+{
+
+
+}
+
 
 //========================================//
 //===============PERCEPTION===============//
@@ -155,6 +249,12 @@ bool is_above_photo_differential(int threshold)
 {
     int photo_difference = abs(right_photo_value - left_photo_value); // get the difference between the photo values
     return photo_difference > threshold;                              // returns true if the absolute difference between photo sensors is greater than the threshold, otherwise false
+}
+
+bool is_at_flower(int threshold)
+{
+    int photo_sum = (right_photo_value + left_photo_value); // get the sum the photo values
+    return photo_sum < threshold;                              // returns true if the absolute difference between photo sensors is greater than the threshold, otherwise false
 }
 
 bool is_above_distance_threshold(int threshold)
