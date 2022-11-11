@@ -216,7 +216,8 @@ if (timer_elapsed()) // any time a drive message is called, the timer is updated
 void return_mode()
 {
     printf("return mode");
-    // orient toward beacon GOES HERE
+    escape_front(); // this is a messy way to test out the waggle function without beacon info.
+    escape_front(); // orient toward beacon GOES HERE
     unsigned long return_timer = systime(); // record start timer
     if (timer_elapsed()) // any time a drive message is called, the timer is updated; this should always return true until it is called again
         {
