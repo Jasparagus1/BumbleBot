@@ -463,4 +463,3 @@ float map(float value, float start_range_low, float start_range_high, float targ
     return target_range_low + ((value - start_range_low) / (start_range_high - start_range_low)) * (target_range_high - target_range_low);
     // remap a value from a source range to a new range
 }
-
