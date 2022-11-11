@@ -240,7 +240,7 @@ void return_mode()
 
             else if (systime() % 100 == 0)
             {
-                printf("%d", systime());
+                printf("%lu", systime());
                 // ORIENT TO BEACON
             }
             else
