@@ -23,3 +23,7 @@ IP to connect to Wombat: https://192.168.125.1/
 
 
 ## Nov. 11
+ - Continued working on waggle mode
+ - To test, we made "return mode" = robot turns 180 degrees, then starts the timer and drives, then goes into waggle mode
+ - Realized we can't call waggle mode until it's returned, but for this test we need to call it at a random point
+ - Also learned about for loop formatting
