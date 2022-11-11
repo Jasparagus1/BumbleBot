@@ -221,6 +221,7 @@ void return_mode()
     return_timer = systime(); // record start timer
     if (timer_elapsed()) // any time a drive message is called, the timer is updated; this should always return true until it is called again
         {
+            printf("%lu", systime());
             // subsumption hierarchy:  front, back, avoid, seek light, cruise straight
             if (systime() > return_timer + 6000) { // this will be replaced with beacon arrival
               arrived = true;
@@ -240,7 +241,7 @@ void return_mode()
 
             else if (systime() % 100 == 0)
             {
-                printf("%lu", systime());
+                // printf("%lu", systime());
                 // ORIENT TO BEACON
             }
             else
