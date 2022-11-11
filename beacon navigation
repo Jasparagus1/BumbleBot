@@ -217,7 +217,7 @@ void return_mode()
 {
     printf("return mode");
     // orient toward beacon GOES HERE
-    unsigned long now_time = systime(); // record start timer
+    unsigned long return_timer = systime(); // record start timer
     if (timer_elapsed()) // any time a drive message is called, the timer is updated; this should always return true until it is called again
         {
             // subsumption hierarchy:  front, back, avoid, seek light, cruise straight
@@ -244,13 +244,13 @@ void return_mode()
             }
         }
 
-    waggle_mode() //
+    waggle_mode(systime() - return_timer);
 }
 
 void waggle_mode(time_back)
 {
     printf("waggle mode");
-    for (i=0, i <= time_back, i++)
+    for (i=0, i <= (time_back/1000), i++)
     {
         if (i % 2 == 0)
         {
