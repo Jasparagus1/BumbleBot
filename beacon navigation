@@ -262,18 +262,23 @@ void waggle_mode(time_back)
 {
     printf("waggle mode");
     int i;
-    for (i=0; i < (time_back/1000); i++)
+    for (i=0; i < (time_back/1000))
     {
-        printf("%d", i);
-        if (i % 2 == 0)
+        if (timer_elapsed())
         {
-            drive(-0.6, 0.6, 0.5);
-            print("drive1");
-        }
-        else
-        {
-            drive(0.6, -0.6, 0.5);
-            print("drive2");
+            printf("%d", i);
+            if (i % 2 == 0)
+            {
+                 drive(-0.6, 0.6, 0.5);
+                 print("drive1");
+                 i++;
+            }
+            else
+            {
+                drive(0.6, -0.6, 0.5);
+                print("drive2");
+                i++;
+            }
         }
     }
     hive = true;
