@@ -114,9 +114,9 @@ int main()
 
         read_sensors(); // read all sensor values and set to global variables
 
-        if(arrived == true)
+        if(arrived != 0)
         {
-            waggle_mode();
+            waggle_mode(systime()-return_timer);
         }
         else if (getback == true)
         {
@@ -244,8 +244,7 @@ void return_mode()
                 cruise_straight();
             }
         }
-
-    waggle_mode(systime() - return_timer);
+    arrived = true;
 }
 
 void waggle_mode(time_back)
