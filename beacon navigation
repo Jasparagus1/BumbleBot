@@ -277,11 +277,12 @@ void waggle_mode(time_back)
         }
     }
     hive = true;
+    printf("bzzzzz ");
 }
 
 void garage_mode()
 {
-    printf("bzzzzz ");
+    // happy bumblebot
 }
 
 
