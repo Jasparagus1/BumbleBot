@@ -222,7 +222,10 @@ void return_mode()
     if (timer_elapsed()) // any time a drive message is called, the timer is updated; this should always return true until it is called again
         {
             // subsumption hierarchy:  front, back, avoid, seek light, cruise straight
-            if (is_front_bump())
+            if (systime() > return_timer + 6000) { // this will be replaced with beacon arrival
+              a rrived = true;
+            }
+            else if (is_front_bump())
             {
                 escape_front();
             }
@@ -244,7 +247,6 @@ void return_mode()
                 cruise_straight();
             }
         }
-    arrived = true;
 }
 
 void waggle_mode(time_back)
