@@ -262,7 +262,7 @@ void waggle_mode(time_back)
 {
     printf("waggle mode");
     int i;
-    for (i=0; i < (time_back/1000))
+    for (i=0; i < (time_back/1000);)
     {
         if (timer_elapsed())
         {
