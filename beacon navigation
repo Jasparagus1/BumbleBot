@@ -92,7 +92,7 @@ int photo_threshold = 0;       // the absolute difference between photo sensor r
 // timer
 int timer_duration = 500;      // the time in milliseconds to wait between calling action commands, changed by each drive command called by actions
 unsigned long start_time = 0; // store the system time each time we start an action so we can see if our time has elapsed without a blocking delay
-
+unsigned long return_timer = 0;
 
 bool flower = false;      
 bool getback = false;   
@@ -218,7 +218,7 @@ void return_mode()
     printf("return mode");
     escape_front(); // this is a messy way to test out the waggle function without beacon info.
     escape_front(); // orient toward beacon GOES HERE
-    unsigned long return_timer = systime(); // record start timer
+    return_timer = systime(); // record start timer
     if (timer_elapsed()) // any time a drive message is called, the timer is updated; this should always return true until it is called again
         {
             // subsumption hierarchy:  front, back, avoid, seek light, cruise straight
