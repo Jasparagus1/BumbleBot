@@ -40,6 +40,7 @@ void search_mode();
 void flower_mode();
 void return_mode();
 void waggle_mode();
+void garage_mode();
 
 // PERCEPTION FUNCTIONS
 void read_sensors();                             // read all sensor values and save to global variables
@@ -97,6 +98,7 @@ unsigned long return_timer = 0;
 bool flower = false;      
 bool getback = false;   
 bool arrived = false;
+bool hive = false;
 // *** Function Definitions *** //
 
 //==================================//
@@ -114,6 +116,11 @@ int main()
 
         read_sensors(); // read all sensor values and set to global variables
 
+        if (hive == true)
+        {
+            garage_mode();
+        }
+        
         if(arrived != 0)
         {
             waggle_mode(systime()-return_timer);
@@ -266,6 +273,12 @@ void waggle_mode(time_back)
             drive(0.6, -0.6, 0.5);
         }
     }
+    hive = true;
+}
+
+void garage_mode()
+{
+    printf("bzzzzz ");
 }
 
 
