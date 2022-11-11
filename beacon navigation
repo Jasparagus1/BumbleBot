@@ -121,7 +121,7 @@ int main()
             garage_mode();
         }
         
-        if(arrived != 0)
+        else if(arrived != 0)
         {
             waggle_mode(systime()-return_timer);
         }
