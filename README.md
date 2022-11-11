@@ -26,4 +26,6 @@ IP to connect to Wombat: https://192.168.125.1/
  - Continued working on waggle mode
  - To test, we made "return mode" = robot turns 180 degrees, then starts the timer and drives, then goes into waggle mode
  - Realized we can't call waggle mode until it's returned, but for this test we need to call it at a random point
- - Also learned about for loop formatting
+ - Also learned about for loop formatting -  we had been declaring int i within the for loop, which KIPR didn't like
+ - The robot was moving around and switching back and forth between returrn mode and waggle mode
+    - We were calling waggle mode in main and at the end of return mode, which was wrong - changed it so end of return now sets arrived to true if it's been 6 seconds
