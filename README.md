@@ -29,3 +29,7 @@ IP to connect to Wombat: https://192.168.125.1/
  - Also learned about for loop formatting -  we had been declaring int i within the for loop, which KIPR didn't like
  - The robot was moving around and switching back and forth between returrn mode and waggle mode
     - We were calling waggle mode in main and at the end of return mode, which was wrong - changed it so end of return now sets arrived to true if it's been 6 seconds
+    - we were constantly updating return_timer because it was in return mode and return mode was repeatedly called. We moved where we set it to flowermode so it would only be set once. 
+    - We successfully called waggle mode! but we realized there was no way to get out of Waggle mode once we were in it so it waggled indefinitely. Makig a garage mode at the end of the main hierarchy so it can rest if its completed its waggle. 
+    - Appears to be going through the for loop in waggle mode very quickly without actually triggering thr drive function, not sure whta happening here. 
+    - 
