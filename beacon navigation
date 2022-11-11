@@ -270,13 +270,13 @@ void waggle_mode(time_back)
             if (i % 2 == 0)
             {
                  drive(-0.6, 0.6, 0.5);
-                 print("drive1");
+                 printf("drive1");
                  i++;
             }
             else
             {
                 drive(0.6, -0.6, 0.5);
-                print("drive2");
+                printf("drive2");
                 i++;
             }
         }
