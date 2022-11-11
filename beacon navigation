@@ -264,6 +264,7 @@ void waggle_mode(time_back)
     int i;
     for (i=0; i < (time_back/1000); i++)
     {
+        printf("%d", i);
         if (i % 2 == 0)
         {
             drive(-0.6, 0.6, 0.5);
