@@ -283,6 +283,7 @@ void waggle_mode(time_back)
 void garage_mode()
 {
     // happy bumblebot
+    drive(0, 0, 1);
 }
 
 
