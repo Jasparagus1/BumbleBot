@@ -251,7 +251,8 @@ void return_mode()
 void waggle_mode(time_back)
 {
     printf("waggle mode");
-    for (i=0, i <= (time_back/1000), i++)
+    int i;
+    for (i=0; i < (time_back/1000); i++)
     {
         if (i % 2 == 0)
         {
@@ -267,7 +268,7 @@ void waggle_mode(time_back)
 
 int orient_to_beacon() // This function should steer forwards or left or right depending on which side of beacon is active. more like a drive than orient.
 {
-    int dir = chooseDirection()
+   // int dir = chooseDirection()
 }
 
 
@@ -436,5 +437,4 @@ float map(float value, float start_range_low, float start_range_high, float targ
     return target_range_low + ((value - start_range_low) / (start_range_high - start_range_low)) * (target_range_high - target_range_low);
     // remap a value from a source range to a new range
 }
-
 
