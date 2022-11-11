@@ -192,6 +192,7 @@ if (timer_elapsed()) // any time a drive message is called, the timer is updated
             if (is_front_bump())
             {
                 getback = true;
+                return_timer = systime(); // record start timer
                 escape_front(); // TEMPORARY this is a messy way to test out the waggle function without beacon info.
                 escape_front(); // TEMPORARY orient toward beacon GOES HERE
                 printf("return mode");
@@ -218,7 +219,6 @@ if (timer_elapsed()) // any time a drive message is called, the timer is updated
 
 void return_mode()
 {
-    return_timer = systime(); // record start timer
     if (timer_elapsed()) // any time a drive message is called, the timer is updated; this should always return true until it is called again
         {
             printf("%lu", systime());
