@@ -246,7 +246,7 @@ void return_mode()
         {
             // printf("%lu", systime());
             // subsumption hierarchy:  front, back, avoid, seek light, cruise straight
-            if (hive_value) { // this will be replaced with beacon arrival
+            if (!(hive_value)) { // this will be replaced with beacon arrival
               arrived = true;
             }
             else if (is_front_bump())
