@@ -71,5 +71,8 @@ IP to connect to Wombat: https://192.168.125.1/
      - Maybe this is actually because the hive pin wasn't getting read at the right time, so we fixed that
      - Required a lot of fine-tuning of the hive-top's height
      - Also put in a command to drive backward slightly after hitting the hive and before waggling
+     - When it approaches from an angle, the switch doesn't get triggered
+     - We added whiskers and now it works a lot better
+     - Added cardboard to whiskers, circular
 
  
