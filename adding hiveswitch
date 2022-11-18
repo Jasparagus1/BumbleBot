@@ -246,7 +246,7 @@ void return_mode()
         {
             // printf("%lu", systime());
             // subsumption hierarchy:  front, back, avoid, seek light, cruise straight
-            if (hive_value) { // this will be replaced with beacon arrival
+            if (!(hive_value)) { // this will be replaced with beacon arrival
               arrived = true;
             }
             else if (is_front_bump())
@@ -334,9 +334,9 @@ void read_sensors()
     front_bump_left_value = digital(FRONT_BUMP_LEFT_PIN);   // read the bumper at FRONT_BUMP_LEFT_PIN
     front_bump_center_value = digital(FRONT_BUMP_CENTER_PIN); // read the bumper at FRONT_BUMP_CENTER_PIN
     front_bump_right_value = digital(FRONT_BUMP_RIGHT_PIN);  // read the bumper at FRONT_BUMP_RIGHT_PIN
-    back_bump_left_value = digital(BACK_BUMP_LEFT_PIN);    // read the bumper at BACK_BUMP_LEFT_PIN
-    back_bump_center_value = digital(BACK_BUMP_CENTER_PIN);  // read the bumper at BACK_BUMP_CENTER_PIN
-    back_bump_right_value = digital(BACK_BUMP_RIGHT_PIN);    // read the bumper at BACK_BUMP_RIGHT_PIN
+    // back_bump_left_value = digital(BACK_BUMP_LEFT_PIN);    // read the bumper at BACK_BUMP_LEFT_PIN
+    // back_bump_center_value = digital(BACK_BUMP_CENTER_PIN);  // read the bumper at BACK_BUMP_CENTER_PIN
+    // back_bump_right_value = digital(BACK_BUMP_RIGHT_PIN);    // read the bumper at BACK_BUMP_RIGHT_PIN
 
     north_value = digital(NORTH_PIN); // read the beacon NORTH value
     south_value = digital(SOUTH_PIN); // read the beacon SOUTH value
