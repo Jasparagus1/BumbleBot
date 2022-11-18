@@ -41,4 +41,4 @@ IP to connect to Wombat: https://192.168.125.1/
     -  Question: would weight of battery tip it too much backwards?
  - Connected pins and declared them in code, editing Arduino code found online
      -  Tested out sensor values - they're all 0, so something isn't working. Also the LED on the beacon sensor is on, but the one on the home beacon is not
-     -  Tried grounding home beacon
+     -  Tried grounding home beacon, didn't change anything
