@@ -40,7 +40,28 @@ IP to connect to Wombat: https://192.168.125.1/
     -  Needed it to be higher than "flower" blocks
     -  Question: would weight of battery tip it too much backwards?
  - Connected pins and declared them in code, editing Arduino code found online
-     -  Tested out sensor values - they're all 0, so something isn't working. Also the LED on the beacon sensor is on, but the one on the home beacon is not
+ - Tested out sensor values - they're all 0, so something isn't working. Also the LED on the beacon sensor is on, but the one on the home beacon is not
      -  Tried grounding home beacon, didn't change anything
      -  Tried swapping wires to see if they were the problem, didn't work
      -  Got an expert to help (The Elusive Phil), who determined that the home beacon seems to be expecting high signal though the user's manual labels it as optional, and he helped us fix the home beacon by connecting it to bread board
+ - Started working on beacon navigation code
+     -  It's mounted on the back of the robot, so had to switch N/S/E/W values
+     -  Should turn according to which part of beacon has signal, until the beacon is facing south
+ - Testing it out
+     -  We forgot to take out the 6 seconds of drive
+     -  It's also going the wrong way
+     -  Problem: how to get it to know if it's back at the hive?
+       -  We could make the hive really dark so that if the photo values are above a certain amount, it's home
+       -  This kind of works, but we should adjust the sharpness of the turns—they're too wide right now,
+       -  Waggle still works!
+       -  Avoid obstacles is overriding navigate to beacon, so we took it out
+       -  Also stabilized the home beacon with more lego connections since now it's on top of a cardboard box
+       -  Now it works a lot better!
+       -  And also drive is fine even though one side is heavier with the battery
+     -  New problem: what if it approaches the hive from the side? 
+       -  Turned hive into a shade overhand situation
+       -  Also, we need the light off for the flower mode to work properly, but on for the robot to know it's home - otherwise it detects its own shadow and starts waggling
+       -  New solution: use a switch to tell when it's home
+       -  We don't have enough digital pins for this, so we sacrificed the back bumper
+       -  Also had to construct a spot for it to be mounted at the front of the robot
+ 
