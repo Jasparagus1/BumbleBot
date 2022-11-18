@@ -252,10 +252,10 @@ void return_mode()
             {
                 escape_back();
             }
-            else if (is_above_distance_threshold(avoid_threshold))
-            {
-                avoid();
-            }
+            // else if (is_above_distance_threshold(avoid_threshold))
+            // {
+            //     avoid();
+            // }
 
             else if (systime() % 100 == 0) // for beacon navigation
             {
@@ -265,11 +265,11 @@ void return_mode()
                 }
                 else if (east_value || north_value)
                 {
-                    drive(0.3, 0.5, 0.5);
+                    drive(0.1, 0.6, 0.5);
                 }
                 else if (west_value)
                 {
-                    drive(0.5, 0.3, 0.5);
+                    drive(0.6, 0.1, 0.5);
                 }
             }
         }
