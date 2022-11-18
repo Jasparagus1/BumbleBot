@@ -34,3 +34,8 @@ IP to connect to Wombat: https://192.168.125.1/
     - Appears to be going through the for loop in waggle mode very quickly without actually triggering the drive function, not sure whta happening here. Probably a problem with the for loop, drive function is working everywhere else.
     - added at drive (0,0) i. garage mode to get it to stop
     - We added an if (timer elapsed()) to the for loop in waggle mode, getting it to wait for the drive function to run beofre continuing throught the for loop. This worked!!
+
+## Nov. 18
+ - Worked on construction of mounts for beacon using legos and learned about beacon operation
+    -  Needed it to be higher than "flower" blocks
+    -  Question: would weight of battery tip it too much backwards?
