@@ -257,14 +257,20 @@ void return_mode()
                 avoid();
             }
 
-            else if (systime() % 100 == 0)
+            else if (systime() % 100 == 0) // for beacon navigation
             {
-                // printf("%lu", systime());
-                // ORIENT TO BEACON
-            }
-            else
-            {
-                cruise_straight();
+                if (south_value)
+                {
+                    drive(0.5, 0.5, 0.5);
+                }
+                else if (east_value || north_value)
+                {
+                    drive(0.3, 0.5, 0.5);
+                }
+                else if (west_value)
+                {
+                    drive(0.5, 0.3, 0.5);
+                }
             }
         }
 }
