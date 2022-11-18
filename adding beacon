@@ -239,9 +239,9 @@ void return_mode()
 {
     if (timer_elapsed()) // any time a drive message is called, the timer is updated; this should always return true until it is called again
         {
-            printf("%lu", systime());
+            // printf("%lu", systime());
             // subsumption hierarchy:  front, back, avoid, seek light, cruise straight
-            if (systime() > return_timer + 6000) { // this will be replaced with beacon arrival
+            if (left_photo_value > 3800 && right_photo_value > 3800) { // this will be replaced with beacon arrival
               arrived = true;
             }
             else if (is_front_bump())
