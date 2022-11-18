@@ -64,4 +64,12 @@ IP to connect to Wombat: https://192.168.125.1/
        -  New solution: use a switch to tell when it's home
        -  We don't have enough digital pins for this, so we sacrificed the back bumper
        -  Also had to construct a spot for it to be mounted at the front of the robot
+       -  Once it was mounted, we looked at the digital sensor corresponding to the switch and confirmed that it was working
+       -  Then we had to go through and comment out a bunch of back bump sensor-related code
+ - Testing this out
+     - Switch isn't triggered if it approaches the hive at an angle
+     - Maybe this is actually because the hive pin wasn't getting read at the right time, so we fixed that
+     - Required a lot of fine-tuning of the hive-top's height
+     - Also put in a command to drive backward slightly after hitting the hive and before waggling
+
  
