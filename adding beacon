@@ -34,6 +34,13 @@ Date:            August 2022
 #define RIGHT_MOTOR_PIN 0
 #define LEFT_MOTOR_PIN 1 // servos
 
+// beacon sensor pins
+#define NORTH_PIN 6
+#define SOUTH_PIN 9
+#define EAST_PIN 8
+#define WEST_PIN 7
+
+
 // *** Function Declarations *** //
 
 // HIGHER LEVEL HIERARCHY FUNCTIONS
@@ -100,6 +107,9 @@ bool flower = false;
 bool getback = false;   
 bool arrived = false;
 bool hive = false;
+
+bool north_value, south_value, east_value, west_value; // direction pin values
+
 // *** Function Definitions *** //
 
 //==================================//
@@ -316,6 +326,11 @@ void read_sensors()
     back_bump_left_value = digital(BACK_BUMP_LEFT_PIN);    // read the bumper at BACK_BUMP_LEFT_PIN
     back_bump_center_value = digital(BACK_BUMP_CENTER_PIN);  // read the bumper at BACK_BUMP_CENTER_PIN
     back_bump_right_value = digital(BACK_BUMP_RIGHT_PIN);    // read the bumper at BACK_BUMP_RIGHT_PIN
+
+    north_value = digital(NORTH_PIN); // read the beacon NORTH value
+    south_value = digital(SOUTH_PIN); // read the beacon SOUTH value
+    east_value = digital(EAST_PIN); // read the beacon EAST value
+    west_value = digital(WEST_PIN); // read the beacon WEST value
 }
 
 bool is_above_photo_differential(int threshold)

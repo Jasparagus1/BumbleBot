@@ -99,6 +99,10 @@ bool flower = false;
 bool getback = false;   
 bool arrived = false;
 bool hive = false;
+
+// servo array stuff
+float bigArray[3][];
+
 // *** Function Definitions *** //
 
 //==================================//
@@ -351,6 +355,7 @@ bool is_back_bump()
 
 void drive(float left, float right, float delay_seconds)
 {
+    bigArray = 
     // 850 is full motor speed clockwise, 1250 is full motor speed counterclockwise
     // Servo is stopped from ~1044 to 1055
 
