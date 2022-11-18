@@ -246,7 +246,7 @@ void return_mode()
         {
             // printf("%lu", systime());
             // subsumption hierarchy:  front, back, avoid, seek light, cruise straight
-            if (!(hive_value)) { // this will be replaced with beacon arrival
+            if (hive_value) { // this will be replaced with beacon arrival
               arrived = true;
             }
             else if (is_front_bump())
@@ -342,6 +342,8 @@ void read_sensors()
     south_value = digital(SOUTH_PIN); // read the beacon SOUTH value
     east_value = digital(EAST_PIN); // read the beacon EAST value
     west_value = digital(WEST_PIN); // read the beacon WEST value
+
+    hive_value = digital(HIVE_PIN); // read hive pin
 }
 
 bool is_above_photo_differential(int threshold)
