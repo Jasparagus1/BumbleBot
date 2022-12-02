@@ -293,6 +293,7 @@ void waggle_mode(time_back)
     drive(-0.2, -0.2, 2);
     drive(0, 0, 1);
 
+    printf("j loop");
     for(j=0; j <= home_direction; ++j)
     {
         drive(0.6, 0.6, 0.5);
@@ -301,12 +302,12 @@ void waggle_mode(time_back)
     drive(0, 0, 1); 
 
 
-
+    printf("i loop");
     for (i=0; i < (time_back/1000);)
     {
         if (timer_elapsed())
         {
-            printf("%d", i);
+            // printf("%d", i);
             if (i % 2 == 0)
             {
                  drive(-0.6, 0.6, 0.5);
@@ -420,7 +421,7 @@ void stop()
 void escape_front()
 {
     int r = rand() % 2;
-    printf("the random number is ");
+    printf("BUMP NUM ");
     printf("%d", r);
     if (r == 0)
     {
