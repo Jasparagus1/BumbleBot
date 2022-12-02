@@ -111,6 +111,7 @@ bool arrived = false;
 bool hive = false;
 
 bool north_value, south_value, east_value, west_value; // direction pin values
+int home_direction = 0; //direction home from flowerish
 
 bool hive_value; // hive switch value
 
@@ -191,6 +192,7 @@ void search_mode()
             {
                 avoid();
             }
+        
 	    else if (right_photo_value + left_photo_value > 5000)
 	    {
 	    	cruise_arc();
@@ -431,17 +433,27 @@ void seek_light()
 
  drive(left_motor_value, right_motor_value, 0.1);
 
-	/*
-	// greater photo_value means less light
-	int photo_difference = right_photo_value - left_photo_value;
-	// positive photo_difference means left sensor is brighter
-	if (photo_difference > 0){
-		drive(-0.2, 0.2, 0.25);
-	}
-	// negative photo_difference means right sensor is brighter
-	if (photo_difference < 0){
-		drive(0.2, -0.2, 0.25);
-	}*/
+ if (right_photo_value + left_photo_value < 4000 && home_direction == 0)
+{
+    if (north_value)
+    {
+        home_direction = 1;
+    }
+    else if (east_value)
+    {
+        home_direction = 2;
+    }
+    else if (south_value)
+    {
+        home_direction = 3;
+    }
+    else if (west_value)
+    {
+        home_direction = 4;
+    }
+    printf("Home Direction: ");
+    printf(home_direction);
+}
 }
 
 void seek_dark()
