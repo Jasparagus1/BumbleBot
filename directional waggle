@@ -298,6 +298,7 @@ void waggle_mode(time_back)
     {
         drive(0.6, 0.6, 0.5);
         drive(-0.6, -0.6, 0.5);
+        printf("this is %d of %d of j", j, home_direction);
     }
     drive(0, 0, 1); 
 
