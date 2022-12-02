@@ -300,14 +300,14 @@ void waggle_mode(time_back)
         {
             if (j % 2 == 0)
             {
-                drive(0.6, 0.6, 0.5);
+                drive(0.6, 0.6, 1);
                 printf("this is %d of %d of j", j, (home_direction*2));
                 j++;
 
             }
             else
             {
-                drive(-0.6, -0.6, 0.5);
+                drive(-0.6, -0.6, 1);
                 printf("this is %d of %d of j", j, (home_direction*2));
                 j++;
             }
