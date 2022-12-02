@@ -75,4 +75,8 @@ IP to connect to Wombat: https://192.168.125.1/
      - We added whiskers and now it works a lot better
      - Added cardboard to whiskers, circular
 
+# Dec. 2
+ - Tested it out in the dark - mostly works, but in the beginning before it detects enough light sometimes it spins around
+     - Also, it takes a while to get around obstacles
+ - Added a cruise back in to the bottom of the subsumption hierarchy in search mode
  
