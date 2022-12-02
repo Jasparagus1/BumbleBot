@@ -191,6 +191,10 @@ void search_mode()
             {
                 avoid();
             }
+	    else if (right_photo_value + left_photo_value > 5000)
+	    {
+	    	cruise_arc();
+	    }
             else 
             {
                 seek_light();
