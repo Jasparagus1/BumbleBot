@@ -306,20 +306,20 @@ void waggle_mode(time_back)
         {
             if (j % 2 == 0)
             {
-                drive(0.8, 0.8, 2);
+                drive(0.6, 0.6, 0.5);
                 printf("this is %d of %d of j", j, (home_direction*2));
                 j++;
 
             }
             else
             {
-                drive(-0.8, -0.8, 2);
+                drive(-0.6, -0.6, 0.5);
                 printf("this is %d of %d of j", j, (home_direction*2));
                 j++;
             }
         }
     }
-    
+
     if (timer_elapsed())
     {
         drive(0, 0, 1); 
@@ -331,7 +331,6 @@ void waggle_mode(time_back)
     {
         if (timer_elapsed())
         {
-            // printf("%d", i);
             if (i % 2 == 0)
             {
                  drive(-0.6, 0.6, 0.5);
