@@ -319,7 +319,11 @@ void waggle_mode(time_back)
             }
         }
     }
-    drive(0, 0, 1); 
+    
+    if (timer_elapsed())
+    {
+        drive(0, 0, 1); 
+    }
 
 
     printf("i loop");
