@@ -445,18 +445,15 @@ void escape_front()
     int r = rand() % 2;
     // printf("BUMP NUM ");
     // printf("%d", r);
-    if (timer_elapsed())
+    if (r == 0)
     {
-        if (r == 0)
-        {
-            printf("BUMP NUM %d", r);
-            drive(-0.2, -0.9, 3); //drive backwards in an arc
-        }
-        else
-        {
-            printf("BUMP NUM %d", r);
-            drive(-0.9, -0.2, 3); //drive backwards the other way
-        }
+        printf("BUMP NUM %d", r);
+        drive(-0.2, -0.9, 3); //drive backwards in an arc
+    }
+    else
+    {
+        printf("BUMP NUM %d", r);
+        drive(-0.9, -0.2, 3); //drive backwards the other way
     }
 }
 
