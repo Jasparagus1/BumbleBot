@@ -78,5 +78,5 @@ IP to connect to Wombat: https://192.168.125.1/
 # Dec. 2
  - Tested it out in the dark - mostly works, but in the beginning before it detects enough light sometimes it spins around
      - Also, it takes a while to get around obstacles
- - Added a cruise back in to the bottom of the subsumption hierarchy in search mode
+ - Added cruise arc back in to the subsumption hierarchy above the seek light function in search mode. This is so that it doesnt get stuck in low light areas like the hive when it's first starting out 
  
