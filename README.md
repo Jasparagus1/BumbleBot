@@ -86,5 +86,5 @@ IP to connect to Wombat: https://192.168.125.1/
  - We added a "home_direction" variable to be recorded when the light levels pass a threshold to be consistent with navigating toward a flower (in this case, if the sum of the two photosensors is less than 4000).
  - Got it to successfully print the home direction, and then tried to modify the waggle so that the bot first moves back and forth to signify directions (1 time for north, 2 for east, 3 for south, 4 for west) and then does the old waggle turning to signify time/distance.
  - Removed a lot of print statements to try to make debugging easier.
+ - Modified the escape_front function so that it randomly chooses between backing up right and backing up left every time, hoping this will solve the getting stuck against a wall problem.
  
-
