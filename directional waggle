@@ -437,7 +437,7 @@ void escape_front()
     int r = rand() % 2;
     // printf("BUMP NUM ");
     // printf("%d", r);
-    if (timer_elapsed){
+    if (timer_elapsed()){
         if (r == 0)
         {
             printf("BUMP NUM %d", r);
