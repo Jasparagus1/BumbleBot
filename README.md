@@ -79,5 +79,12 @@ IP to connect to Wombat: https://192.168.125.1/
  - Tested it out in the dark - mostly works, but in the beginning before it detects enough light sometimes it spins around
      - Also, it takes a while to get around obstacles
  - Added cruise arc back in to the subsumption hierarchy above the seek light function in search mode. This is so that it doesnt get stuck in low light areas like the hive when it's first starting out 
+ - Basic behavior is working pretty well. Drew a bee face on the cardboard.
+ - Dicussed further options with KL, decided to try to record direction of flower relative to hive.
+ - Considered options for path integration, ultimately decided to just record the direction of the beacon when the light is first detected, the hope being that this way it will record the direction of the flower while in between the home and flower locations, rather than recording it on the far side of the flower or something like that.
+ - This is the "directional waggle" file...
+ - We added a "home_direction" variable to be recorded when the light levels pass a threshold to be consistent with navigating toward a flower (in this case, if the sum of the two photosensors is less than 4000).
+ - Got it to successfully print the home direction, and then tried to modify the waggle so that the bot first moves back and forth to signify directions (1 time for north, 2 for east, 3 for south, 4 for west) and then does the old waggle turning to signify time/distance.
+ - Removed a lot of print statements to try to make debugging easier.
  
 
