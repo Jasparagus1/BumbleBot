@@ -425,7 +425,16 @@ void stop()
 
 void escape_front()
 {
-    drive(-0.2, -0.9, 3); //drive backwards in an arc
+    int r = rand() % 2;
+    if (r == 0)
+    {
+        drive(-0.2, -0.9, 3); //drive backwards in an arc
+    }
+    else
+    {
+        drive(-0.9, -0.2, 3); //drive backwards the other way
+    }
+    
 }
 
 void escape_back()
