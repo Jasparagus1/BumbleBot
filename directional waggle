@@ -294,11 +294,14 @@ void waggle_mode(time_back)
     drive(0, 0, 1);
 
     printf("j loop");
-    for(j=0; j < (home_direction * 3); ++j)
+    for(j=0; j < (home_direction * 3);)
     {
-        drive(0.6, 0.6, 0.5);
-        drive(-0.6, -0.6, 0.5);
-        printf("this is %d of %d of j", j, home_direction);
+        if (timer_elapsed())
+        {
+            drive(0.6, 0.6, 0.5);
+            drive(-0.6, -0.6, 0.5);
+            j++;
+            printf("this is %d of %d of j", j, home_direction);
     }
     drive(0, 0, 1); 
 
