@@ -290,8 +290,14 @@ void waggle_mode(time_back)
 {
     int i;
     int j;
-    drive(-0.4, -0.4, 3);
-    drive(0, 0, 1);
+    if (timer_elapsed())
+    {
+        drive(-0.4, -0.4, 3);
+    }
+    if (timer_elapsed())
+    {
+        drive(0, 0, 1);
+    }
 
     printf("j loop");
     for(j=0; j < (home_direction * 2);)
