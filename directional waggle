@@ -171,9 +171,9 @@ return 0; // due to infinite while loop, we will never get here
 void search_mode()
 {
     
-    printf("search mode");
     if(is_at_flower(2000) == true)
     {
+        printf("flower mode");
         flower = true;
     }
 
@@ -213,7 +213,6 @@ void search_mode()
 void flower_mode()
 {
     
-    printf("flower mode");
 
 if (timer_elapsed()) // any time a drive message is called, the timer is updated; this should always return true until it is called again
         {
@@ -253,6 +252,7 @@ void return_mode()
             // printf("%lu", systime());
             // subsumption hierarchy:  front, back, avoid, seek light, cruise straight
             if (!(hive_value)) { // this will be replaced with beacon arrival
+              printf("waggle mode");
               arrived = true;
             }
             else if (is_front_bump())
@@ -288,7 +288,6 @@ void return_mode()
 
 void waggle_mode(time_back)
 {
-    printf("waggle mode");
     int i;
     int j;
     drive(-0.2, -0.2, 2);
@@ -311,19 +310,16 @@ void waggle_mode(time_back)
             if (i % 2 == 0)
             {
                  drive(-0.6, 0.6, 0.5);
-                 printf("drive1");
                  i++;
             }
             else
             {
                 drive(0.6, -0.6, 0.5);
-                printf("drive2");
                 i++;
             }
         }
     }
     hive = true;
-    printf("bzzzzz ");
 }
 
 void garage_mode()
