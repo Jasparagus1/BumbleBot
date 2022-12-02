@@ -429,12 +429,12 @@ void escape_front()
     // printf("%d", r);
     if (r == 0)
     {
-        printf("BUMP NUM %d", r)
+        printf("BUMP NUM %d", r);
         drive(-0.2, -0.9, 3); //drive backwards in an arc
     }
     else
     {
-        printf("BUMP NUM %d", r)
+        printf("BUMP NUM %d", r);
         drive(-0.9, -0.2, 3); //drive backwards the other way
     }
     
