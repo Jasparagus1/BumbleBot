@@ -473,12 +473,12 @@ void seek_light()
 
 if (motor_value_difference > 0)
 {
-    drive(left_motor_value - motor_value_difference, right_motor_value, 0.1);
+    drive(left_motor_value + motor_value_difference, right_motor_value, 0.1);
 }
 
 else
 {
-    drive(left_motor_value, right_motor_value + motor_value_difference, 0.1);
+    drive(left_motor_value, right_motor_value - motor_value_difference, 0.1);
 }
  
 
