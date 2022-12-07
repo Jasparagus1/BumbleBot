@@ -95,4 +95,7 @@ IP to connect to Wombat: https://192.168.125.1/
  ## DEC 7th
   - Test running it, moved the hive to the middle of the environment. This worked fine but it wasn't seeking the light well using braitenburg steering. 
   - We also realized one potential problem of having the hive in the center. The IR sensors don't detect it as on obstical and the front bumper wont activate because its so high off the ground. So when its in search mode, we just need to make the elevated hive detection switch be equivelant to the front bumper. 
-  - 
+  - Braitenburg mode is not sensitive enough, needs to steer harder. This is really weird because this was like the first thing we did and it worked great on Nov 4th. Trying to change the mapping function to map the values of the photosensors from 0 - 3000 instead of 0-4095. It's only active in this mode when the sum of the sensor outputs is less than 5000 combined anyway. This didn't seem to work.
+  - new idea is to take the difference between the sensors and add that difference to one side of the difference ends up negitive and another if it ends up positive
+  - Changed the mapping in drive on the right motor to use only the middle part of the range. This is to fix a hardware issue with a discrepincy between motor outputs
+  - changing the threshold to get into flowermode. This makes it more likey to hit the flower using the IR object seeking, only downside is its more likly to hit a wall and think its a flower
