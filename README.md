@@ -92,4 +92,7 @@ IP to connect to Wombat: https://192.168.125.1/
  - Home direction -> waggle function was working
  - Changed mapping in drive to compensate 
  
- 
+ ## DEC 7th
+  - Test running it, moved the hive to the middle of the environment. This worked fine but it wasn't seeking the light well using braitenburg steering. 
+  - We also realized one potential problem of having the hive in the center. The IR sensors don't detect it as on obstical and the front bumper wont activate because its so high off the ground. So when its in search mode, we just need to make the elevated hive detection switch be equivelant to the front bumper. 
+  - 
