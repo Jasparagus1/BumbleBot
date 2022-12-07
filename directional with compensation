@@ -180,7 +180,7 @@ void search_mode()
     else if (timer_elapsed()) // any time a drive message is called, the timer is updated; this should always return true until it is called again
         {
             // subsumption hierarchy:  front, back, avoid, seek light, cruise straight
-            if (is_front_bump())
+            if (is_front_bump() || !(hive_value)) // if it hits the front bumper or top "hive switch"
             {
                 escape_front();
             }
