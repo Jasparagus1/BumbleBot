@@ -199,6 +199,7 @@ void search_mode()
 	    }
             else 
             {
+                printf("braitenberg");
                 seek_light();
             }
             
@@ -465,8 +466,8 @@ void escape_back()
 void seek_light()
 {
 
- float left_motor_value = map(right_photo_value, 0, 4095, 1, 0);
- float right_motor_value = map(left_photo_value, 0, 4095, 1, 0);
+ float left_motor_value = map(right_photo_value, 0, 3000, 1, 0);  // mapped 0 to 3000 out of possible 4095 because of threshold involved in search mode...
+ float right_motor_value = map(left_photo_value, 0, 3000, 1, 0);
 
  drive(left_motor_value, right_motor_value, 0.1);
 
