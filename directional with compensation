@@ -417,7 +417,7 @@ void drive(float left, float right, float delay_seconds)
     // Servo is stopped from ~1044 to 1055
 
     float left_speed = map(left, -1.0, 1.0, 0, 2047); // call the map function to map our speed (set between -1 and 1) to the appropriate range of motor values
-    float right_speed = map(right, -1.0, 1.0, 1843, 204);
+    float right_speed = map(right, -1.0, 1.0, 1843, 204); // this is mapped to only use the middle part of the range as a correction for a motor issue we were having
 
     timer_duration = (int)(delay_seconds * 1000.0); // multiply our desired time in seconds by 1000 to get milliseconds and update this global variable
     start_time = systime();                            // update our start time to reflect the time we start driving (in ms)
