@@ -213,37 +213,34 @@ void search_mode()
 
 void flower_mode()
 {
-    
-
-if (timer_elapsed()) // any time a drive message is called, the timer is updated; this should always return true until it is called again
-        {
-            // subsumption hierarchy:  front, back, avoid, seek light, cruise straight
-            if (is_front_bump())
+    if (timer_elapsed()) // any time a drive message is called, the timer is updated; this should always return true until it is called again
             {
-                getback = true;
-                return_timer = systime(); // record start timer
-                escape_front(); // TEMPORARY this is a messy way to test out the waggle function without beacon info.
-                escape_front(); // TEMPORARY orient toward beacon GOES HERE
-                printf("return mode");
+                // subsumption hierarchy:  front, back, avoid, seek light, cruise straight
+                if (is_front_bump())
+                {
+                    getback = true;
+                    return_timer = systime(); // record start timer
+                    escape_front(); // TEMPORARY this is a messy way to test out the waggle function without beacon info.
+                    escape_front(); // TEMPORARY orient toward beacon GOES HERE
+                    printf("return mode");
+                }
+                else if (is_back_bump())
+                {
+                    escape_back();
+                }
+                else if (is_above_distance_threshold(approach_threshold))
+                {
+                    approach();
+                }
+                else if (is_above_photo_differential(photo_threshold))
+                {
+                    seek_light();
+                }
+                else
+                {
+                    cruise_straight();
+                }
             }
-            else if (is_back_bump())
-            {
-                escape_back();
-            }
-            else if (is_above_distance_threshold(approach_threshold))
-            {
-                approach();
-            }
-            else if (is_above_photo_differential(photo_threshold))
-            {
-                seek_light();
-            }
-            else
-            {
-                cruise_straight();
-            }
-        }
-
 }
 
 void return_mode()
