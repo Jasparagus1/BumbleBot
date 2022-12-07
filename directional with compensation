@@ -469,7 +469,7 @@ void seek_light()
  float left_motor_value = map(right_photo_value, 0, 3000, 1, 0);  // mapped 0 to 3000 out of possible 4095 because of threshold involved in search mode...
  float right_motor_value = map(left_photo_value, 0, 3000, 1, 0);
 
- float motor_value_difference = left_motor_value - right_motor_value;
+ float motor_value_difference = (left_motor_value - right_motor_value)*3;
 
 if (motor_value_difference > 0)
 {
